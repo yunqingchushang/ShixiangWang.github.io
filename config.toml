@@ -12,12 +12,12 @@
 # For developpers, if you modify this theme, put your images in `source/images` folder and
 # use grunt task `build` to synchronize assets
 
-baseURL = "https://ShixiangWang.github.io/"
+baseURL = "https://ShixiangWang.github.io"
 languageCode = "en-us"
 defaultContentLanguage = "en-us"
 title = "Shixiang Wang"
 theme = "hugo-tranquilpeak-theme"
-disqusShortname = "hugo-site-2"
+disqusShortname = "shixiangahh"
 # googleAnalytics = "UA-123-45"
 paginate = 7
 canonifyurls = true
