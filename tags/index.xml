@@ -6,10 +6,37 @@
     <description>Recent content in Tags on Shixiang Wang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 15 Jun 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 10 Aug 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>configuration</title>
+      <link>/tags/configuration/</link>
+      <pubDate>Fri, 10 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/configuration/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>installation</title>
+      <link>/tags/installation/</link>
+      <pubDate>Fri, 10 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/installation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>r</title>
+      <link>/tags/r/</link>
+      <pubDate>Fri, 10 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/r/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>disqus</title>

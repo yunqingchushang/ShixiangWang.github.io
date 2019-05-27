@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>installation on Shixiang Wang</title>
+    <link>/tags/installation/</link>
+    <description>Recent content in installation on Shixiang Wang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 10 Aug 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/installation/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>R的安装与配置</title>
+      <link>/2018/08/r%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Fri, 10 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/08/r%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</guid>
+      <description>本文以Windows作为对象讲解R的安装和配置，相关的配置也适用于其他系统。</description>
+    </item>
+    
+  </channel>
+</rss>

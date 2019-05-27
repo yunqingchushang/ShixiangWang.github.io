@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.55.5 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Shixiang Wang">
+<meta name="keywords" content="">
+<meta name="description" content="本文以Windows作为对象讲解R的安装和配置，相关的配置也适用于其他系统。">
+
+
+<meta property="og:description" content="本文以Windows作为对象讲解R的安装和配置，相关的配置也适用于其他系统。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R的安装与配置">
+<meta name="twitter:title" content="R的安装与配置">
+<meta property="og:url" content="/2018/08/r%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/">
+<meta property="twitter:url" content="/2018/08/r%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/">
+<meta property="og:site_name" content="Shixiang Wang">
+<meta property="og:description" content="本文以Windows作为对象讲解R的安装和配置，相关的配置也适用于其他系统。">
+<meta name="twitter:description" content="本文以Windows作为对象讲解R的安装和配置，相关的配置也适用于其他系统。">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2018-08-10T00:00:00">
+  
+  
+    <meta property="article:modified_time" content="2018-08-10T00:00:00">
+  
+  
+  
+    
+      <meta property="article:section" content="r">
+    
+  
+  
+    
+      <meta property="article:tag" content="r">
+    
+      <meta property="article:tag" content="configuration">
+    
+      <meta property="article:tag" content="installation">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@WangShxiang">
+
+
+  <meta name="twitter:creator" content="@WangShxiang">
+
+
+
+
+
+
+  <meta property="og:image" content="https://tse1-mm.cn.bing.net/th?id=OIP.R8AbXGKdfOgKhdn_OyN3aQHaHM&w=202&h=196&c=7&o=5&pid=1.7">
+  <meta property="twitter:image" content="https://tse1-mm.cn.bing.net/th?id=OIP.R8AbXGKdfOgKhdn_OyN3aQHaHM&w=202&h=196&c=7&o=5&pid=1.7">
+
+
+
+
+
+  <meta property="og:image" content="/img/github.jpeg">
+  <meta property="twitter:image" content="/img/github.jpeg">
+
+
+    <title>R的安装与配置</title>
+
+    <link rel="icon" href="https://avatars1.githubusercontent.com/u/25057508?s=40&amp;v=4">
+    
+
+    
+
+    <link rel="canonical" href="/2018/08/r%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="/">Shixiang Wang</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="/img/github.jpeg" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="/#about">
+          <img class="sidebar-profile-picture" src="/img/github.jpeg" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Shixiang Wang</h4>
+        
+          <h5 class="sidebar-profile-bio">遥知不是雪，唯有暗香来</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/ShixiangWang">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://stackoverflow.com/users/7662327/shixiang-wang">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-stack-overflow"></i>
+      
+      <span class="sidebar-button-desc">Stack Overflow</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      R的安装与配置
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2018-08-10T00:00:00Z">
+        
+  August 10, 2018
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="/categories/r">r</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              
+
+<p>Windows R安装好后配置是本文的重点。关于Windows R的安装，百度有一大堆的教程。其中重点有3：</p>
+
+<ol>
+<li>安装R，下载<a href="https://mirrors.tuna.tsinghua.edu.cn/CRAN/bin/windows/base/R-3.5.1-win.exe">https://mirrors.tuna.tsinghua.edu.cn/CRAN/bin/windows/base/R-3.5.1-win.exe</a></li>
+<li>安装RStudio，下载<a href="https://download1.rstudio.org/RStudio-1.1.456.exe">https://download1.rstudio.org/RStudio-1.1.456.exe</a></li>
+<li>（可选）安装Rtools，这个是用来编译源码包的，一般是含有其他语言写的包需要该步骤，下载<a href="https://mirrors.tuna.tsinghua.edu.cn/CRAN/bin/windows/Rtools/Rtools35.exe">https://mirrors.tuna.tsinghua.edu.cn/CRAN/bin/windows/Rtools/Rtools35.exe</a>
+<br /></li>
+</ol>
+
+<p>上述所有链接都是2018-08-10的最新版本。</p>
+
+<p>根据我这一年多反复安装R，遇到错误不得不重装R的一些经历，在安装时有以下几个重要的建议：</p>
+
+<ol>
+<li>尽量不要安装在<code>Program files</code>相关目录下，考虑到现在大多数电脑都是一个C盘，可以选择在C盘下创建一个目录专门用来装R、R包以及R tools。下面展示的就是我选择了<code>C:/Tools</code>作为本文软件安装的目录。大家根据自己电脑合理选择，有其他盘的朋友可以装到其他盘。带固态硬盘的最好装到固态硬盘目录里，因为读写数据快。</li>
+<li>一般现在电脑是64位的，如果你确定是这样，在安装时有关于32位的选项都可以不勾选。</li>
+<li>涉及到添加环境变量/路径之类的，勾选添加即可。</li>
+<li>以上没提到的，一路点下一步。</li>
+</ol>
+
+<blockquote>
+<p>注意，R和RStudio可以单独安装，但RStudio只有在R安装好了以后才能正常使用。</p>
+</blockquote>
+
+<h2 id="配置">配置</h2>
+
+<p>Windows R默认使用用户文档目录作为家目录（等同于Linux中的<code>~</code>），使用系统指定的临时目录作为临时目录，使用安装路径下的<code>R版本/library</code>目录作为R包存储目录。</p>
+
+<p>如果你什么都选择默认的，</p>
+
+<ul>
+<li>当你一时安装包过多，或者装了电脑管家之类的管理软件时，系统的临时目录经常会把RStudio锁死，导致不能进行读写。</li>
+<li>当你想要更新R版本时，你不得不面临重装所有包的举动（如果你使用几个月，装了几百个包~~），或者想其他办法解决。</li>
+</ul>
+
+<p>下面就是教你自己创建自定义的临时目录与包目录，这样上面情况都不会发生了。</p>
+
+<h3 id="具体操作">具体操作</h3>
+
+<p>在安装好R和RStudio后，打开RStudio，在R控制台键入：</p>
+
+<pre><code>file.edit(&quot;~/.Rprofile&quot;)
+</code></pre>
+
+<p>在启动RStudio时，RStudio会首先执行里面的R代码，所以我们可以在这里用R代码进行配置。</p>
+
+<p>在该文档内添加内容：</p>
+
+<pre><code class="language-r">#--------------------------------------------
+# Set custom library and temp directory for R
+# NOTE: please only change following 2 paths
+#   Any Question, please email to 
+#       Shixiang Wang &lt;w_shixiang@163.com&gt;
+#--------------------------------------------
+.CUSTOM_LIB = &quot;C:/Tools/R/R_Library&quot; # set your custom library location
+.TMP = &quot;C:/Tools/R/Rtmp&quot;             # set a temp dir for R running
+# please do not add '/' at the end !!!
+
+if(!dir.exists(.CUSTOM_LIB)){
+    dir.create(.CUSTOM_LIB)
+}
+
+.libPaths(c(.CUSTOM_LIB, .libPaths()))
+message(&quot;Using library: &quot;, .libPaths()[1])
+
+
+if(dirname(tempdir()) != .TMP){
+    if(!dir.exists(.TMP)) dir.create(.TMP)
+    cat(paste0(&quot;TMPDIR = &quot;, .TMP), file=&quot;~/.Renviron&quot;, sep = &quot;\n&quot;)
+}
+message(&quot;Using temp directory: &quot;, .TMP)
+
+#---------------------------------------------------
+# pacman is optional, you can delete following code
+# If you wanna use pacman, please read:
+#   &lt;https://www.jianshu.com/p/cb16ded75672&gt;
+# Basically, 
+# #1, you can use 'p_load' to load multiple package into R
+#       like p_load(data.table, dplyr)
+# #2, you can use 'p_get' just to install package
+# #3, you can use 'p_update' to update all packages
+#---------------------------------------------------
+if(!require(pacman)){
+    install.packages(&quot;pacman&quot;, dependencies = TRUE)
+}
+library(pacman)
+#----------------------------------------------------
+</code></pre>
+
+<p>如下图：</p>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/3884693-719810a185fcfff5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Rstudio截图" /></p>
+
+<p>你主要对下面的目录进行修改即可</p>
+
+<pre><code class="language-r">.CUSTOM_LIB = &quot;C:/Tools/R/R_Library&quot; # set your custom library location
+.TMP = &quot;C:/Tools/R/Rtmp&quot;             # set a temp dir for R running
+# please do not add '/' at the end !!!
+</code></pre>
+
+<p>pacman那段代码是可选的，该包是<code>library()</code>函数的替代品，使用更简单。具体<a href="https://www.jianshu.com/p/cb16ded75672">点击阅读</a>我之前的文章。</p>
+
+<p>为了方便大家使用，我添加了一些必要注释，如果有问题可以评论或者email我。</p>
+
+<p>保存后重启RStudio或者点击菜单栏<code>Session</code>下的<code>Restart R</code>。</p>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/3884693-d3e23e15c7d662dd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" /></p>
+
+<p>每次都会输出你包的存储路径和R的临时路径。方便你自己查询。</p>
+
+<p>这样以后升级R，只要重装下R版本就可以了，R包还在那里，最多再在控制台来一句：</p>
+
+<pre><code>p_update()
+</code></pre>
+
+<p>。</p>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="/tags/r/">r</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/configuration/">configuration</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/installation/">installation</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2015/06/welcome-to-tranquilpeak-0.4.4-beta/" data-tooltip="Welcome to Tranquilpeak 0.4.4-BETA">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2018/08/r%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+    <script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=56261z0673p&amp;m=6&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=0" async="async"></script>
+  <span class="copyrights">
+    &copy; 2019 Shixiang Wang. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2015/06/welcome-to-tranquilpeak-0.4.4-beta/" data-tooltip="Welcome to Tranquilpeak 0.4.4-BETA">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2018/08/r%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=%2F2018%2F08%2Fr%25E7%259A%2584%25E5%25AE%2589%25E8%25A3%2585%25E4%25B8%258E%25E9%2585%258D%25E7%25BD%25AE%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="/img/github.jpeg" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Shixiang Wang</h4>
+    
+      <div id="about-card-bio">遥知不是雪，唯有暗香来</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Ph.D. Student of ShanghaiTech. University
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Shanghai, China
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="Search" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center">no post found</div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/2018/08/r%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/">
+                <h3 class="media-heading">R的安装与配置</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Aug 8, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">本文以Windows作为对象讲解R的安装和配置，相关的配置也适用于其他系统。</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/2015/06/welcome-to-tranquilpeak-0.4.4-beta/">
+                <h3 class="media-heading">Welcome to Tranquilpeak 0.4.4-BETA</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jun 6, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>Tranquilpeak is a gorgeous responsive theme for Hugo blog framework. It has many features and integrated services to improve user experience.</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/2015/05/elements-showcase/">
+                <h3 class="media-heading">Elements showcase</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>Check out how Tranquilpeak theme display well HTML elements (title, paragraph, blockquote, table and more..). It&rsquo;s simple and elegant.</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/2015/05/cover-image-showcase/">
+                <h3 class="media-heading">Cover image showcase</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>Tranquilpeak integrate a unique &ldquo;cover image&rdquo; feature. Open this post to see how this feature sublimate your article.</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/2015/03/highlighted-code-showcase/">
+                <h3 class="media-heading">highlighted code showcase</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Mar 3, 2015
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>Tranquilpeak Hugo theme have its own theme to highlight source code. It&rsquo;s based on GitHub theme: simple and elegant. Check out how it sublimate source codes.</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/2014/10/tags-plugins-showcase/">
+                <h3 class="media-heading">Tags plugins showcase</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2014
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>This post is used to show how tag plugins are displayed. See <a href="https://github.com/kakawait/hugo-tranquilpeak-theme/blob/master/docs/user.md#tags">docs</a> for more info.</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/2014/08/hidden-pagination-showcase/">
+                <h3 class="media-heading">Hidden pagination showcase</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Aug 8, 2014
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>This post is used to show how a site looks if the pagination is hidden.</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/2014/08/video-integrations-showcase/">
+                <h3 class="media-heading">Video integrations showcase</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Aug 8, 2014
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>Youtube and Vimeo videos are easily integrated thanks to tags plugins. Of course, you can add video other platforms like dailymotion.</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/2013/02/image-gallery-showcase/">
+                <h3 class="media-heading">Image gallery showcase</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Feb 2, 2013
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>And here is the image gallery!</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero="no post found"
+         data-message-one="1 post found"
+         data-message-other="{n} posts found">
+         9 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('/images/cover.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+
